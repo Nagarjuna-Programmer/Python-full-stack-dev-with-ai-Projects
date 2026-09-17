@@ -1,102 +1,75 @@
-name = input("Enter your name: ")
+name = input("Enter your Name:")
 
-list = '''
-Wheat       Rs 45/kg
-Tomato      Rs 35/kg
-Potato      Rs 30/kg
-Milk        Rs 60/litre
-Biscuits    Rs 20/pack
-Soap        Rs 35/piece
-Shampoo     Rs 80/bottle
-Tea         Rs 120/pack
-Coffee      Rs 150/pack
+
+lists = '''
+Rice       Rs 10/kg
+Sugar      Rs 8/kg
+Oil        Rs 30/liter
+Salt       Rs 25/kg
+Paneer     Rs 40/kg
+Maggie     Rs 12/pack
+Boost      Rs 200/bottle
 '''
-
-
 price = 0
+pricelist = []
 totalprice = 0
-item_list = []
-quantity_list = []
-price_list = []
+Finalprice = 0
+ilist = []
+qlist = []
+plist = []
 
-# rate for each item
-items = {
-    'wheat': 45,
-    'tomato': 35,
-    'potato': 30,
-    'milk': 60,
-    'biscuits': 20,
-    'soap': 35,
-    'shampoo': 80,
-    'tea': 120,
-    'coffee': 150
-}
+
+items = {'rice': 10, 'sugar': 8, 'oil': 30, 'salt': 25, 'paneer': 40, 'maggie': 12, 'boost': 200}
 
 while True:
     option = input("Press 1 for list or 2 to exit: ")
-
     if option == '2':
         print("Thank you for shopping")
         break
-
     elif option == '1':
-        print(list)
+        print(lists)
 
         while True:
-            inpt_1 = input("To buy press 1 or 2 to exit: ")
-
-            if inpt_1 == '2':
+            inp1 = input("To buy press 1 or press 2 to exit: ")
+            if inp1 == '2':
                 print("Thank you for shopping")
                 break
-
-            elif inpt_1 == '1':
-                item = input("Choose your item: ").lower()
+            elif inp1 == '1':
+                item = input("Choose your items: ").lower()
+                while True:
+                    quantity_input = input("Enter quantity: ")
+                    if quantity_input.isdigit():  # Check if input is a digit
+                        quantity = int(quantity_input)
+                        break
+                    else:
+                        print("Please enter a valid quantity.")
 
                 if item in items:
-                    quantity_input = input("Please enter quantity: ")
-
-                    if quantity_input.isdigit():
-                        quantity = int(quantity_input)
-
-                        price = quantity * items[item]
-                        totalprice += price
-
-                        item_list.append(item)
-                        quantity_list.append(quantity)
-                        price_list.append(price)
-
-                    else:
-                        print("Please enter valid quantity.")
-
+                    price = quantity * items[item]
+                    pricelist.append((item, quantity, items[item], price))
+                    totalprice += price
+                    ilist.append(item)
+                    qlist.append(quantity)
+                    plist.append(price)
                 else:
-                    print("Selected item is not available.")
+                    print("Selected item is not available. Sorry for the inconvenience.")
 
         if totalprice > 0:
             tax = (totalprice * 18) / 100
-            final_amount = totalprice + tax
+            finalamount = tax + totalprice
 
-            print("=" * 50)
-            print("             SUPER MARKET")
-            print("=" * 50)
-
-            print("Name:", name)
-            print("-" * 50)
-
-            print("S.No    Item        Quantity       Price")
-            print("-" * 50)
-
-            for i in range(len(item_list)):
-                print(i + 1, "     ", item_list[i],
-                      "       ", quantity_list[i],
-                      "       ", price_list[i])
-
-            print("-" * 50)
-            print("Total Amount: Rs", totalprice)
-            print("Tax Amount:   Rs", round(tax))
-            print("Final Amount: Rs", round(final_amount))
-
-            print("-" * 50)
-            print("       Thank you and visit again")
-            print("-" * 50)
-
-            break
+            print(25 * "=", "Pythonlife Supermarket", 25 * "=")
+            print(28 * " ", "Hyderabad")
+            print("Name:", name, 30 * " ","August 04 2026")
+            print(75 * "-")
+            print("sno", 10 * " ", 'items', 8 * " ", 'quantity', 8 * " ", 'price')
+            for i in range(len(pricelist)):
+                print(i, 13 * " ", ilist[i], 8 * " ", qlist[i], 8 * " ", plist[i])
+            print(75 * "-")
+            print(50 * " ", 'Total amount:', 'Rs', totalprice)
+            print("Tax amount", 50 * " ", 'Rs', tax)
+            print(75 * "-")
+            print(50 * " ", 'Final amount:', 'Rs', finalamount)
+            print(75 * "-")
+            print(20 * " ", "Thank you & Visit again")
+            print(75 * "-")
