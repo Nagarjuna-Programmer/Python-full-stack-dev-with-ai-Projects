@@ -13,7 +13,7 @@ Tea         Rs 120/pack
 Coffee      Rs 150/pack
 '''
 
-# declaration
+
 price = 0
 totalprice = 0
 item_list = []
