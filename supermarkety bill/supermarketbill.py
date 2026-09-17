@@ -1,6 +1,5 @@
 name = input("Enter your name: ")
 
-# list of items
 list = '''
 Wheat       Rs 45/kg
 Tomato      Rs 35/kg
