@@ -112,7 +112,7 @@ if logged_in_account is not None:
         Train("12728", "Tadepalligudem", "Visakhapatnam", 50),
         Train("22863", "Vijayawada", "Bangalore", 1),
 
-
+    ]
         
 
 for train in trains:
@@ -178,26 +178,3 @@ else:
                             passengers[i]], pnr_list[i])
             ticket.display_info()
             print("\n--------Thank You------- \n-------Safe Journey------")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
